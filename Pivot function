@@ -14,7 +14,7 @@ FROM
       ROW_NUMBER() OVER (PARTITION BY occupation ORDER BY name) AS row
     FROM
       occupations
-  ) AS occup
+  ) occup
 PIVOT
   (    max(name) FOR occupation IN ('Doctor', 'Professor', 'Singer', 'Actor')
   ) AS pivottable;
